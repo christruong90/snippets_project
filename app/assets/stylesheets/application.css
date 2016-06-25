@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+h1 {
+  text-align: center;
+}
+
+.language_bar {
+  text-align: center;
+}
