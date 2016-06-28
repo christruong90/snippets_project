@@ -17,12 +17,12 @@ class SnippetsController < ApplicationController
     @snippet = Snippet.find params[:id]
   end
 
-
   def show
     @snippet = Snippet.find params[:id]
   end
 
   def destroy
+    @snippet = Snippet.find params[:id]
     @snippet.destroy
     redirect_to snippets_path, notice: "Snippet Deleted!"
   end
@@ -36,6 +36,7 @@ class SnippetsController < ApplicationController
   end
 
   private
+
 
   def snippet_params
     params.require(:snippet).permit(:title, :work, :category_id)

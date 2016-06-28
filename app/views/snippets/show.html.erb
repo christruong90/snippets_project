@@ -1,9 +1,9 @@
-<h1><%= @snippet.title.titleize %></h1>
+<h2><%= @snippet.title.titleize %></h2>
 <p><%= @snippet.work %></p>
 <p><%= @snippet.category.name %></p>
 <!-- <p>Created by: <%#= @snippet.user.first_name if @snippet.user %> <%#= @snippet.user.last_name if @snippet.user %> </p> -->
 
-<%#= link_to "Edit", edit_snippet_path(@snippet) %>
-<%#= link_to "Delete", snippet_path(@snippet),
+<%= link_to "Edit", edit_snippet_path(@snippet) %>
+<%= link_to "Delete", snippet_path(@snippet),
                       method: :delete,
                       data:   {confirm: "Are you sure?"} %>
