@@ -6,6 +6,9 @@
 
 <%= form_for @snippet do |f| %>
   <div>
+    <%= f.collection_select :category_id, Category.all, :id, :name %>
+  </div>
+  <div>
     <%= f.label :title %>
     <%= f.text_field :title %>
   </div>
@@ -13,5 +16,5 @@
     <%= f.label :work %>
     <%= f.text_area :work %>
   </div>
-  <%= f.submit "Create New Snippet" %>
+  <%= f.submit "Save Changes" %>
 <% end %>
