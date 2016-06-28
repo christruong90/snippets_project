@@ -4,20 +4,32 @@ class SnippetsController < ApplicationController
     @snippet = Snippet.new
   end
 
-  def edit
-
-  end
-
   def create
-
+    @snippet = Snippet.new snippet_params
+    if @snippet.save
+      redirect_to snippet_path(@snippet)
+    else
+      render :new
+    end
   end
+
+  def edit
+    @snippet = Snippet.find params[:id]
+  end
+
 
   def show
     @snippet = Snippet.find params[:id]
   end
 
   def destroy
-
+    @snippet.destroy
+    redirect_to snippets_path, notice: "Snippet Deleted!"
   end
 
+  private
+
+  def snippet_params
+    params.require(:snippet).permit(:title, :work, :category_id)
+  end
 end
