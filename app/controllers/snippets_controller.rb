@@ -13,7 +13,7 @@ class SnippetsController < ApplicationController
   end
 
   def show
-
+    @snippet = Snippet.find params[:id]
   end
 
   def destroy
