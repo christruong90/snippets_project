@@ -17,6 +17,14 @@ class SnippetsController < ApplicationController
     @snippet = Snippet.find params[:id]
   end
 
+  def update
+    if @snippet.update snippet_params
+      redirect_to snippet_path(@snippet), notice:"Snippet updated!"
+    else
+      render :edit
+    end
+  end
+
   def show
     @snippet = Snippet.find params[:id]
     @snippet_category = @snippet.category.name.to_sym
