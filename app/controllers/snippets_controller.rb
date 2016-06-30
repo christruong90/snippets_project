@@ -19,6 +19,7 @@ class SnippetsController < ApplicationController
 
   def show
     @snippet = Snippet.find params[:id]
+    @snippet_category = @snippet.category.name.to_sym
   end
 
   def destroy

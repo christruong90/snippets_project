@@ -1,6 +1,10 @@
 <h2><%= @snippet.title.titleize %></h2>
-<p><%= @snippet.work %></p>
-<p><%= @snippet.category.name %></p>
+
+<% if @snippet_category == :markdown %>
+  <%= markdown(@snippet.work) %>
+<% else %>
+  <%= CodeRay.scan(@snippet.work, @snippet_category).div(line_numbers: false).html_safe %>
+<% end %>
 <!-- <p>Created by: <%#= @snippet.user.first_name if @snippet.user %> <%#= @snippet.user.last_name if @snippet.user %> </p> -->
 
 <%= link_to "Edit", edit_snippet_path(@snippet) %>
