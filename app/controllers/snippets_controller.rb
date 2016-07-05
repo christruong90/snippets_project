@@ -44,6 +44,17 @@ class SnippetsController < ApplicationController
     @snippets = Snippet.where(category: @category.id)
   end
 
+  def update
+
+    @snippet = Snippet.find params[:id]
+    if @snippet.update snippet_params
+      # flash[:notice] = "update successful"
+      redirect_to snippet_path(@snippet), notice: "update successful"
+    else
+      render :edit
+    end
+  end
+
   private
 
 
